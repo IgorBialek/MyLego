@@ -1,0 +1,48 @@
+.cardCheckboxContainer {
+  width: 100%;
+
+  font-size: 12px;
+  text-align: center;
+}
+
+.unselected {
+  width: 100%;
+  background-color: var(--color-2);
+  padding: var(--button-padding);
+  border-radius: var(--button-radius);
+  color: var(--color-6);
+
+  transition: 0.2s;
+}
+
+.unselected:hover {
+  cursor: pointer;
+  background-color: var(--color-1);
+  transition: 0.2s;
+}
+
+.selected {
+  width: 100%;
+  background-color: var(--color-5);
+  padding: var(--button-padding);
+  border-radius: var(--button-radius);
+  color: var(--color-2);
+
+  transition: 0.2s;
+}
+
+.selected:hover {
+  cursor: pointer;
+  background-color: var(--color-4);
+  transition: 0.2s;
+}
+
+.selected > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected svg {
+  margin-right: 5px;
+}

@@ -1,0 +1,15 @@
+.loaderContainer {
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+
+  flex-grow: 1;
+
+  color: var(--color-2);
+  text-align: center;
+}
+
+.loaderContainer > div {
+  width: 125px;
+}

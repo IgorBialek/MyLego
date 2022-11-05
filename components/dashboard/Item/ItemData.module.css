@@ -1,0 +1,42 @@
+.itemImageContainer {
+  width: 100%;
+  height: 50%;
+
+  background-color: white;
+  border-radius: var(--card-radius);
+}
+
+.data {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.itemName {
+  overflow: auto;
+  padding: 0;
+  height: 100%;
+}
+
+.itemName > p {
+  overflow: auto;
+  margin-bottom: var(--card-padding);
+  height: 38px;
+  color: var(--text-color);
+}
+
+.smallData {
+  flex-direction: column;
+  padding-top: var(--card-padding);
+}
+
+.smallDesc {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--text-color);
+  opacity: 33%;
+  padding: 0;
+  margin: 0;
+}

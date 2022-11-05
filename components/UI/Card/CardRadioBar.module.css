@@ -1,0 +1,56 @@
+.cardRadioBarContainer {
+  flex-wrap: wrap;
+  margin-left: 10px;
+
+  font-size: 13.5px;
+}
+
+.radio {
+  color: var(--color-4);
+  padding: var(--button-padding);
+  border-radius: var(--button-radius);
+
+  position: relative;
+
+  transition: 0.2s;
+}
+
+.radio > svg {
+  margin-right: 10px;
+}
+
+.radio:not(:last-of-type):after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  bottom: calc(50% - 20px / 2);
+  width: 3px;
+  border-bottom: 20px solid var(--color-3);
+}
+
+.radio:not(:last-of-type):not(:first-of-type) {
+  margin: 0 10px;
+}
+
+.radio:first-of-type {
+  margin-right: 10px;
+}
+
+.radio:last-of-type {
+  margin-left: 10px;
+}
+
+.radio:hover {
+  color: var(--color-3);
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.selected {
+  background-color: var(--color-2);
+  color: white !important;
+  font-weight: bold;
+
+  transition: 0.2s;
+}

@@ -1,0 +1,24 @@
+.cardButton {
+  padding: 10px;
+  border-radius: 10px;
+
+  border: none;
+
+  background-color: var(--color-2);
+  color: var(--color-6);
+
+  font-weight: bold;
+
+  transition: 0.2s;
+}
+
+.cardButton:hover {
+  cursor: pointer;
+  background-color: var(--color-1);
+  transition: 0.2s;
+}
+
+.iconMargin span {
+  margin-right: 10px;
+  color: var(--color-6);
+}

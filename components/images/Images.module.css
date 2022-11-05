@@ -1,0 +1,30 @@
+.imagesContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  height: 100vh;
+  background-color: var(--color-5);
+
+  padding: var(--content-margin);
+}
+
+.imagesContainer img {
+  border-radius: var(--card-radius);
+}
+
+.closeActions {
+  font-size: 25px;
+  align-self: flex-end;
+  margin-bottom: var(--button-padding);
+}
+
+.closeActions span {
+  display: flex;
+}
+
+.center {
+  height: 100vh;
+  flex-direction: column;
+}

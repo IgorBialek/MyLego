@@ -1,0 +1,36 @@
+{
+  "name": "mylegos_v2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "async-await-foreach": "^1.0.4",
+    "axios": "^0.27.2",
+    "firebase": "^9.13.0",
+    "match-sorter": "^6.3.1",
+    "next": "^12.3.1",
+    "next-auth": "^4.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
+    "react-responsive": "^9.0.0-beta.10",
+    "recharts": "^2.1.12",
+    "recoil": "^0.7.5",
+    "sharp": "^0.31.2"
+  },
+  "devDependencies": {
+    "@types/node": "18.0.0",
+    "@types/oauth": "^0.9.1",
+    "@types/react": "18.0.14",
+    "@types/react-dom": "18.0.5",
+    "@types/sharp": "^0.31.0",
+    "eslint": "8.18.0",
+    "eslint-config-next": "12.1.6",
+    "typescript": "4.7.4"
+  }
+}

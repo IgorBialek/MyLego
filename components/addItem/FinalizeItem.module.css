@@ -1,0 +1,50 @@
+.finalizeItemContainer {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  height: 100px;
+  margin-bottom: 15px;
+}
+
+.finalizeItemContainer > p {
+  padding: 0 25px;
+}
+
+.countContainer > svg,
+.mobileCountContainer > svg {
+  margin: 0 10px;
+  font-size: 22px;
+  color: var(--color-2);
+}
+
+.countContainer {
+  margin-left: auto;
+  padding-right: 0;
+  padding-left: 25px;
+}
+
+.countContainer > p,
+.mobileCountContainer > p {
+  margin: 0 10px;
+}
+
+.mobileCountContainer {
+  margin-left: auto;
+}
+
+.name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 500px;
+}
+
+.id {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.countControl {
+  padding: 5px;
+}

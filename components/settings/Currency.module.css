@@ -1,0 +1,36 @@
+.currencyContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 250px;
+  gap: var(--card-padding);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.info > div {
+  flex-grow: 1;
+}
+
+.info p {
+  margin: 0;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.customItemsContainer {
+  display: flex;
+  width: 202px;
+  height: 165px;
+  overflow: auto;
+}
+
+.customDropdown {
+  min-height: 200px;
+}

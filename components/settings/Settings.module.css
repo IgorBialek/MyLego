@@ -1,0 +1,4 @@
+.settingsContainer {
+  flex-wrap: wrap;
+  gap: var(--content-margin);
+}

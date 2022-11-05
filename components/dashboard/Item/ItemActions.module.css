@@ -1,0 +1,12 @@
+.deleteFix span {
+  max-height: 13.33px;
+}
+
+.closeActions {
+  align-self: flex-end;
+}
+
+.countContainer > p {
+  font-size: 30px;
+  margin: 0 20px;
+}

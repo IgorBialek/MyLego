@@ -1,0 +1,17 @@
+.modelContainer {
+  flex-direction: column;
+  width: 100%;
+  height: calc(100vh - 155px);
+}
+
+.modelContainer > h2 {
+  margin: var(--content-margin) 0;
+  text-align: center;
+}
+
+.modelContainer > iframe {
+  border: none;
+  border-radius: var(--card-radius);
+  width: 100%;
+  height: 100%;
+}

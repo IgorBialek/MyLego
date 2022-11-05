@@ -1,0 +1,36 @@
+.themeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 250px;
+}
+
+.palleteContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 140px;
+}
+
+.pallete {
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+  border-radius: 50%;
+}
+
+.pallete:hover {
+  cursor: pointer;
+}
+
+.pallete:nth-child(3n - 1) {
+  margin: 10px 10px 0 10px;
+}
+
+.pallete > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+}

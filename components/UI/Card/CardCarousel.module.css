@@ -1,0 +1,31 @@
+.controlContainer {
+  flex-direction: column;
+  background-color: var(--color-6);
+  padding: var(--card-padding);
+  padding-top: 0;
+  border-radius: var(--card-radius);
+  position: relative;
+  z-index: 10;
+}
+
+.actionContainer {
+  gap: var(--button-padding);
+}
+
+.stageContainer {
+  width: 250px;
+  height: 10px;
+  background-color: var(--color-5);
+  margin: var(--button-padding) 0;
+  position: relative;
+  border-radius: 10px;
+}
+
+.stageIndicator {
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-2);
+  position: absolute;
+  transition: 0.2s ease;
+}

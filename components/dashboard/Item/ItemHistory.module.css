@@ -1,0 +1,12 @@
+.itemPrice {
+  color: var(--text-color);
+  font-size: 24px;
+  margin-top: 0;
+}
+
+.itemCount {
+  color: var(--text-color);
+  font-size: 12px;
+  padding-left: 0;
+  margin: 0;
+}

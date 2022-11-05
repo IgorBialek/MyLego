@@ -1,0 +1,15 @@
+.checkbox {
+  width: auto;
+  margin: 25px 0;
+}
+
+.checkbox > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox svg {
+  margin: 0;
+  font-size: 20px;
+}

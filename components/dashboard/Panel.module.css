@@ -1,0 +1,56 @@
+.panelContainer {
+  flex-direction: column;
+  padding: var(--card-padding);
+  border-radius: var(--card-radius);
+  background-color: var(--color-6);
+  color: var(--text-color);
+}
+
+.total {
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.total p {
+  margin: 0;
+}
+
+.total > p:first-of-type {
+  font-size: 50px;
+}
+
+.indicator {
+  font-size: 25px;
+}
+
+.update {
+  width: 150px;
+}
+
+.updateInProgress {
+  width: 150px;
+}
+
+.updateInProgress svg {
+  animation: rotate infinite 1s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(-360deg);
+  }
+}
+
+.chartInfo {
+  width: 300px;
+  text-align: center;
+  font-size: 21.5px;
+  margin: 0;
+  margin-top: 25px;
+  color: var(--text-color);
+}

@@ -1,0 +1,23 @@
+.itemsBarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+
+  padding: var(--bar-padding);
+  padding-top: 0;
+  background-color: var(--color-6);
+  border-radius: var(--card-radius);
+  margin-bottom: var(--content-margin);
+}
+
+.itemsBarContainer button {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.mobileItemsBarContainer {
+  display: flex;
+  flex-direction: column;
+}

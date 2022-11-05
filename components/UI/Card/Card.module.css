@@ -1,0 +1,17 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: var(--color-6);
+  color: var(--text-color);
+
+  padding: var(--card-padding);
+
+  border-radius: var(--card-radius);
+}
+
+.card h1 {
+  margin: 0;
+}

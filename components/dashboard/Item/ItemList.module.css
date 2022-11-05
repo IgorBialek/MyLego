@@ -1,0 +1,41 @@
+.dashboardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  overflow-y: auto;
+
+  gap: var(--add-item-margin);
+
+  width: 100%;
+
+  margin-top: var(--content-margin);
+}
+
+.mobileDashboardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  height: 100%;
+  width: 100%;
+
+  gap: var(--add-item-margin);
+  margin-top: var(--content-margin);
+}
+
+.itemListInfo {
+  flex-direction: column;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.itemListInfo > h1 {
+  margin: 25px;
+}
+
+.itemListInfo > h2 {
+  margin: 0;
+}

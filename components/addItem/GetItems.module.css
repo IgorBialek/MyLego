@@ -1,0 +1,4 @@
+.getItemsContainer {
+   display: flex;
+   padding-top: var(--bar-padding);
+}

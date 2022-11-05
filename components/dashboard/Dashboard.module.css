@@ -1,0 +1,26 @@
+.dashboardContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  height: calc(100vh - var(--content-margin) * 2);
+  width: 100%;
+}
+
+.mobileDashboardContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  min-height: calc(100vh - var(--content-margin) * 3 - 49px);
+  width: 100%;
+}
+
+.topContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: var(--content-margin);
+}

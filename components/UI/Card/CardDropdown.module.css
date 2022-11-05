@@ -1,0 +1,42 @@
+.dropdownItemContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.dropdownItem {
+  background-color: var(--color-4);
+  border: none;
+  border-radius: var(--button-radius);
+  padding: 10px;
+  transition: 0.2s;
+  color: var(--text-color);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.dropdownItem:hover {
+  background-color: var(--color-3);
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.input {
+  background-color: var(--color-4);
+  border: none;
+  border-radius: var(--card-radius);
+  padding: 10px;
+  transition: 0.2s;
+  color: var(--text-color);
+  font-weight: bold;
+  text-align: center;
+}
+
+.input:focus {
+  background-color: var(--color-3);
+  transition: 0.2s;
+  outline: none;
+}

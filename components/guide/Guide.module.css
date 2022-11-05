@@ -1,0 +1,45 @@
+.guideContainer {
+  color: var(--text-color);
+  background-color: var(--color-5);
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  padding: calc(var(--content-margin) * 2);
+  text-align: center;
+}
+
+.guideContainer > h1 {
+  font-size: 75px;
+  margin: 0;
+  margin-bottom: var(--content-margin);
+}
+
+.guideContainer > h2 {
+  font-size: clamp(20px, 3vw, 35px);
+  margin: 0;
+  margin-bottom: var(--content-margin);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-bottom: var(--content-margin);
+}
+
+.imageContainer:hover {
+  cursor: pointer;
+}
+
+.bigImageContainer {
+  position: fixed;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.bigImageContainer:hover {
+  cursor: pointer;
+}

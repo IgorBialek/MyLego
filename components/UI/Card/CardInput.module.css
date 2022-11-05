@@ -1,0 +1,45 @@
+.cardInputContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  position: relative;
+}
+
+.cardInput {
+  width: 100%;
+
+  border: none;
+  font-weight: bold;
+
+  padding: 10px;
+  padding-left: 36px;
+
+  border-radius: 10px;
+  background-color: var(--color-4);
+  color: var(--text-color);
+
+  transition: 0.2s;
+}
+
+.cardInput:focus {
+  outline: none;
+  background-color: var(--color-3);
+
+  transition: 0.2s;
+}
+
+.cardInput::placeholder {
+  color: var(--color-2);
+}
+
+.cardInputContainer span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  left: 10px;
+
+  color: var(--color-1);
+}

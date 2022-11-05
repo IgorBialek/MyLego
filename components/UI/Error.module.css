@@ -1,0 +1,14 @@
+.errorContainer {
+  flex-direction: column;
+
+  max-width: 500px;
+}
+
+.errorContainer > p {
+  margin-top: var(--card-padding);
+  margin-bottom: calc(var(--card-padding) * 2);
+}
+
+.alignEnd {
+  align-self: flex-end;
+}
