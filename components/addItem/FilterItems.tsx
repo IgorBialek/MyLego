@@ -25,7 +25,7 @@ const FilterItems = () => {
   };
 
   return (
-    <div className={css.filterItemsContainer}>
+    <div className={`${css.filterItemsContainer} center`}>
       <CardInput
         icon={<TbFilter />}
         displayIcon={true}

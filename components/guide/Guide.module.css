@@ -9,7 +9,7 @@
 }
 
 .guideContainer > h1 {
-  font-size: 75px;
+  font-size: clamp(50px, 10vw, 75px);
   margin: 0;
   margin-bottom: var(--content-margin);
 }

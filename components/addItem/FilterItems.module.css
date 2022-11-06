@@ -1,4 +1,7 @@
 .filterItemsContainer {
-    display: flex;
-    padding-top: var(--bar-padding);
+  flex-wrap: wrap;
+}
+
+.filterItemsContainer > div {
+  padding-top: var(--bar-padding);
 }
