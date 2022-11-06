@@ -11,7 +11,7 @@ const Model: FC<{ id: string }> = ({ id }) => {
         This feature is experimental!
       </h2>
 
-      <iframe src={`http://www.mecabricks.com/en/player/${id}`}></iframe>
+      <iframe src={`https://www.mecabricks.com/en/player/${id}`}></iframe>
     </div>
   );
 };
