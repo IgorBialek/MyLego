@@ -40,7 +40,7 @@ const Theme = () => {
         {palletes.map((pallete) => (
           <div
             key={pallete[0]}
-            className={css.pallete}
+            className={`${css.pallete} center`}
             style={{ backgroundColor: "#" + pallete[1] }}
             onClick={() => selectHandler(pallete)}
           >
