@@ -9,7 +9,7 @@ Thanks to this application, you can control and analyze your assets stored in le
 
 ## Demo
 
-Insert gif or link to demo
+https://mylego.vercel.app
 
 
 ## Features
