@@ -34,6 +34,7 @@ const Currency = () => {
         <h1>Currency</h1>
         <div className="center">
           <p>{selectedCurrency.name}</p>
+          <p>({selectedCurrency.value.toFixed(2)})</p>
         </div>
       </div>
       <CardDropdown

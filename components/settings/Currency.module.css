@@ -16,12 +16,18 @@
 
 .info > div {
   flex-grow: 1;
+  flex-direction: column;
 }
 
-.info p {
+.info p:nth-child(1) {
   margin: 0;
   font-size: 50px;
   font-weight: bold;
+}
+
+.info p:nth-child(2) {
+  margin: 0;
+  font-size: 25px;
 }
 
 .customItemsContainer {
