@@ -21,7 +21,11 @@ const Sieve = () => {
     let email = session?.user?.email;
 
     if (email) {
-      await setDoc(doc(firestore, "sorting", email), { ...sort, ...obj });
+      await setDoc(doc(firestore, "sorting", email), {
+        mode: sort.mode,
+        desc: sort.desc,
+        ...obj,
+      });
     }
   };
 

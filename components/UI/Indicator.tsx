@@ -7,7 +7,8 @@ const Indicator: FC<{
   initValue: number;
   newValue: number;
   customClass?: string;
-}> = ({ initValue, newValue, customClass }) => {
+  selectedCurrency?: { name: string; value: number };
+}> = ({ initValue, newValue, customClass, selectedCurrency }) => {
   const profit = newValue - initValue;
 
   return (
@@ -21,6 +22,11 @@ const Indicator: FC<{
           <p>{((profit / initValue) * 100).toFixed(2)}%</p>
           {profit >= 0 ? <TbArrowNarrowUp /> : <TbArrowNarrowDown />}
         </Fragment>
+      ) : selectedCurrency ? (
+        <p>
+          +{(newValue * selectedCurrency.value).toFixed()}
+          {selectedCurrency.name}
+        </p>
       ) : (
         ""
       )}

@@ -13,18 +13,24 @@ const ItemHistory: FC<{ item: Item }> = ({ item }) => {
 
   return (
     <Fragment>
-      <div className={"center"}>
-        <CardInfo
-          text={
-            (
-              (item.avgPrice ?? 0) *
-              item.count *
-              selectedCurrency.value
-            ).toFixed() + selectedCurrency.name
-          }
-          customClass={css.itemPrice}
-        />
-        <Indicator initValue={item.retail ?? 0} newValue={item.avgPrice ?? 0} />
+      <div className={`${css.container} center`}>
+        <div className="center">
+          <CardInfo
+            text={
+              (
+                (item.avgPrice ?? 0) *
+                item.count *
+                selectedCurrency.value
+              ).toFixed() + selectedCurrency.name
+            }
+            customClass={css.itemPrice}
+          />
+          <Indicator
+            initValue={item.retail ?? 0}
+            newValue={item.avgPrice ?? 0}
+            selectedCurrency={selectedCurrency}
+          />
+        </div>
         {item.count > 1 && (
           <CardInfo
             text={`(${(

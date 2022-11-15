@@ -10,6 +10,10 @@ import Indicator from './Indicator';
 const Chart: FC<{ data: { date: Date; value: number }[] }> = ({ data }) => {
   const selectedCurrency = useRecoilValue(selectedCurrencyAtom);
 
+  let sortedData = [...data].sort(
+    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+  );
+
   const CustomTooltip = ({
     active,
     payload,
@@ -27,8 +31,8 @@ const Chart: FC<{ data: { date: Date; value: number }[] }> = ({ data }) => {
               {selectedCurrency.name}
             </p>
             <Indicator
-              initValue={data[label > 0 ? label - 1 : label].value ?? 0}
-              newValue={data[label].value ?? 0}
+              initValue={sortedData[label > 0 ? label - 1 : label].value ?? 0}
+              newValue={sortedData[label].value ?? 0}
               customClass={css.tooltipIndicator}
             />
           </div>
@@ -42,7 +46,7 @@ const Chart: FC<{ data: { date: Date; value: number }[] }> = ({ data }) => {
   return (
     <div className={css.chartContainer}>
       <ResponsiveContainer width="99%">
-        <AreaChart data={data}>
+        <AreaChart data={sortedData}>
           <defs>
             <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
               <stop

@@ -71,30 +71,34 @@ const Panel = () => {
         })
       );
 
-      let email = session?.user?.email;
+      let upgradedItemsValue = parseInt(
+        upgradedItems
+          .reduce(
+            (total: number, item: Item) =>
+              total + (item.avgPrice ?? 0) * item.count,
+            0
+          )
+          .toFixed()
+      );
 
-      if (email) {
-        await setDoc(doc(firestore, "items", email), {
-          items: upgradedItems,
-        });
+      if (upgradedItemsValue !== updates[updates.length - 1].value) {
+        let email = session?.user?.email;
 
-        await setDoc(doc(firestore, "updates", email), {
-          updates: [
-            ...updates,
-            {
-              date: new Date().toISOString(),
-              value: parseInt(
-                upgradedItems
-                  .reduce(
-                    (total: number, item: Item) =>
-                      total + (item.avgPrice ?? 0) * item.count,
-                    0
-                  )
-                  .toFixed()
-              ),
-            },
-          ],
-        });
+        if (email) {
+          await setDoc(doc(firestore, "items", email), {
+            items: upgradedItems,
+          });
+
+          await setDoc(doc(firestore, "updates", email), {
+            updates: [
+              ...updates,
+              {
+                date: new Date().toISOString(),
+                value: upgradedItemsValue,
+              },
+            ],
+          });
+        }
       }
 
       setUpdating(false);

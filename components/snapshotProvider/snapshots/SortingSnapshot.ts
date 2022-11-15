@@ -21,13 +21,12 @@ const SortingSnapshot = (
     doc(firestore, "sorting", email),
     (doc) => {
       let sort = doc.data() as {
-        query: string;
         mode: string;
         desc: boolean;
       };
 
       if (sort) {
-        setSort(sort);
+        setSort({ ...sort, query: "" });
       }
 
       if (!loadedStates.sorting) {
