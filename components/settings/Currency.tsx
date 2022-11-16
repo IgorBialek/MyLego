@@ -32,10 +32,11 @@ const Currency = () => {
     <Card customClass={css.currencyContainer}>
       <div className={css.info}>
         <h1>Currency</h1>
-        <div className="center">
-          <p>{selectedCurrency.name}</p>
-          <p>({selectedCurrency.value.toFixed(2)})</p>
-        </div>
+        <p>{selectedCurrency.name}</p>
+        <p>({selectedCurrency.value.toFixed(2)})</p>
+        <a className={css.attribution} href="https://www.exchangerate-api.com">
+          Rates By Exchange Rate API
+        </a>
       </div>
       <CardDropdown
         values={Object.keys(currencies ?? {})}

@@ -9,23 +9,19 @@
 }
 
 .info {
+  align-self: stretch;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  align-items: center;
 }
 
-.info > div {
-  flex-grow: 1;
-  flex-direction: column;
-}
-
-.info p:nth-child(1) {
+.info p:nth-child(2) {
   margin: 0;
   font-size: 50px;
   font-weight: bold;
 }
 
-.info p:nth-child(2) {
+.info p:nth-child(3) {
   margin: 0;
   font-size: 25px;
 }
@@ -39,4 +35,11 @@
 
 .customDropdown {
   min-height: 200px;
+}
+
+.attribution {
+  margin-top: auto;
+  max-width: 140.75px;
+  font-size: 11px;
+  text-align: center;
 }

@@ -34,7 +34,7 @@ const SnapshotProvider: FC<{ children: ReactNode }> = ({ children }) => {
   useEffect(() => {
     const init = async () => {
       let currencies = (
-        await axios.get("https://api.exchangerate.host/latest?base=EUR")
+        await axios.get("https://open.er-api.com/v6/latest/EUR")
       ).data.rates;
       setCurrencies(currencies);
 

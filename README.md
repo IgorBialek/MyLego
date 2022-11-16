@@ -85,6 +85,7 @@ In most of the features, there is of course the possibility to filter, sort or s
 - Recharts
 - Bricklink API
 - Brickset API
+- ExchangeRate API
 
 ## Authors
 
