@@ -11,12 +11,14 @@ import { LoadedStatesAtom } from '../../atoms/layout/LoadedStates';
 import { themeAtom } from '../../atoms/layout/Theme';
 import { currenciesAtom } from '../../atoms/settings/Currencies';
 import { selectedCurrencyAtom } from '../../atoms/settings/SelectedCurrency';
+import { usageAtom } from '../../atoms/settings/Usage';
 import { firestore } from '../../firebase';
 import CurrencySnapshot from './snapshots/CurrencySnapshot';
 import ItemsSnapshot from './snapshots/ItemsSnapshot';
 import SortingSnapshot from './snapshots/SortingSnapshot';
 import ThemeSnapshot from './snapshots/ThemeSnapshot';
 import UpdatesSnapshot from './snapshots/UpdatesSnapshot';
+import UsageSnapshot from './snapshots/UsageSnapshot';
 
 const SnapshotProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const { data: session } = useSession();
@@ -30,6 +32,7 @@ const SnapshotProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const setSort = useSetRecoilState(sortAtom);
   const setTheme = useSetRecoilState(themeAtom);
   const setUpdates = useSetRecoilState(updatesAtom);
+  const setUsage = useSetRecoilState(usageAtom);
 
   useEffect(() => {
     const init = async () => {
@@ -64,6 +67,7 @@ const SnapshotProvider: FC<{ children: ReactNode }> = ({ children }) => {
         SortingSnapshot(email, setSort, setLoadedStates, loadedStates),
         CurrencySnapshot(email, setSelectedCurrency),
         ThemeSnapshot(email, setTheme),
+        UsageSnapshot(setUsage),
       ];
     }
 

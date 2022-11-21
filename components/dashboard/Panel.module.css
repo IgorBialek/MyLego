@@ -24,10 +24,7 @@
   font-size: 25px;
 }
 
-.update {
-  width: 150px;
-}
-
+.update,
 .updateInProgress {
   width: 150px;
 }
@@ -53,4 +50,14 @@
   margin: 0;
   margin-top: 25px;
   color: var(--text-color);
+}
+
+.updateContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.usage {
+  margin-left: calc(var(--card-padding) / 2);
 }

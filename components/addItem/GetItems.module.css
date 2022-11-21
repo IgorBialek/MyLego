@@ -1,4 +1,8 @@
 .getItemsContainer {
-   display: flex;
-   padding-top: var(--bar-padding);
+  display: flex;
+  padding-top: var(--bar-padding);
+}
+
+.usage {
+  margin-right: 10px;
 }

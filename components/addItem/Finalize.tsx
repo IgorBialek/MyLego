@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { doc, increment, updateDoc } from 'firebase/firestore';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
@@ -8,6 +9,7 @@ import { selectedItemsAtom } from '../../atoms/addItem/SelectedItems';
 import { itemsAtom } from '../../atoms/dashboard/Items';
 import { modalChildAtom } from '../../atoms/layout/ModalChild';
 import { showModalAtom } from '../../atoms/layout/ShowModal';
+import { firestore } from '../../firebase';
 import syncItems from '../../lib/syncItems';
 import Item from '../../models/item/item';
 import CardPrimaryButton from '../UI/Card/CardPrimaryButton';
@@ -43,6 +45,10 @@ const Finalize = () => {
               selectedItem: item,
             });
 
+            await updateDoc(doc(firestore, "app", "usage"), {
+              bricklink: increment(-1),
+            });
+
             return res.data;
           })
         );
@@ -76,16 +82,18 @@ const Finalize = () => {
         if (axios.isAxiosError(e) && typeof e.response?.data == "string") {
           setModalChild({
             id: "ERROR",
-            title: "Upsss! 😵",
+            title: "Ooops!",
             text: e.response?.data,
             handler: () => setShowModal(false),
           });
         } else {
           setModalChild({
             id: "ERROR",
-            title: "Upsss! 😵",
-            text: "Something is not working right now :(",
-            handler: () => setShowModal(false),
+            title: "Ooops!",
+            text: "Something went wrong 😵.",
+            handler: () => {
+              setShowModal(false);
+            },
           });
         }
       }

@@ -10,7 +10,7 @@ const scrollHandler = (
     event.currentTarget.clientHeight;
 
   if (bottom) {
-    setState((prevState) => prevState + 25);
+    setState((prevState) => prevState + 24);
   }
 };
 
