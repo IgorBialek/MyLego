@@ -11,11 +11,15 @@ import css from './ItemHistory.module.css';
 const ItemHistory: FC<{ item: Item }> = ({ item }) => {
   const selectedCurrency = useRecoilValue(selectedCurrencyAtom);
 
-  let latestValue = item.history
-    ? item.history[item.history.length - 1].value
+  let sortedHistory = [...(item.history ?? [])].sort(
+    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+  );
+
+  let latestValue = sortedHistory
+    ? sortedHistory[sortedHistory.length - 1].value
     : 0;
-  let secondLatesValue = item.history
-    ? item.history[item.history.length - 2].value
+  let secondLatesValue = sortedHistory
+    ? sortedHistory[sortedHistory.length - 2].value
     : 0;
 
   let lastPriceChangeValue = Math.ceil(
