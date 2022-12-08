@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router';
 import { FC, MouseEvent, useEffect, useState } from 'react';
-import { useSetRecoilState } from 'recoil';
+import { TbAdjustments, TbChartArea, TbPhoto } from 'react-icons/tb';
 
-import { currentItemAtom } from '../../../atoms/images/currentItem';
 import Item from '../../../models/item/item';
 import Card from '../../UI/Card/Card';
+import CardSmallButton from '../../UI/Card/CardSmallButton';
 import css from './Item.module.css';
 import ItemActions from './ItemActions';
 import ItemData from './ItemData';
@@ -12,7 +12,6 @@ import ItemHistory from './ItemHistory';
 
 const ItemComp: FC<{ item: Item }> = ({ item }) => {
   const router = useRouter();
-  const setCurrentItem = useSetRecoilState(currentItemAtom);
 
   const [showAdvData, setShowAdvData] = useState(false);
   const [showActions, setShowActions] = useState(false);
@@ -21,7 +20,7 @@ const ItemComp: FC<{ item: Item }> = ({ item }) => {
   const mouseDownHandler = (e: MouseEvent<HTMLElement>) => {
     if (e.button == 0) {
       pressTimeout = setTimeout(() => {
-        setShowActions(true);
+        showActionsHandler();
       }, 1000);
     }
   };
@@ -33,15 +32,30 @@ const ItemComp: FC<{ item: Item }> = ({ item }) => {
       }
 
       if (!showActions) {
-        setShowAdvData((prevState) => !prevState);
+        showHistoryHandler();
       }
     }
   };
 
+  const showActionsHandler = () => {
+    setShowActions(true);
+  };
+
+  const showHistoryHandler = () => {
+    setShowAdvData((prevState) => !prevState);
+  };
+
+  const showImagesHandler = () => {
+    router.push({
+      pathname: "/images",
+      query: { id: item.id, setID: item.setID, image: item.image },
+    });
+  };
+
   const contextMenuHandler = async (e: MouseEvent<HTMLElement>) => {
     e.preventDefault();
-    setCurrentItem({ id: item.id, setID: item.setID, image: item.image });
-    router.push(`/images`);
+
+    showImagesHandler();
   };
 
   useEffect(() => {
@@ -64,7 +78,20 @@ const ItemComp: FC<{ item: Item }> = ({ item }) => {
       ) : showAdvData ? (
         <ItemHistory item={item} />
       ) : (
-        <ItemData item={item} />
+        <>
+          <ItemData item={item} />
+          <div className={css.smallButtonsContainer}>
+            <CardSmallButton
+              icon={<TbChartArea />}
+              handler={showHistoryHandler}
+            />
+            <CardSmallButton
+              icon={<TbAdjustments />}
+              handler={showActionsHandler}
+            />
+            <CardSmallButton icon={<TbPhoto />} handler={showImagesHandler} />
+          </div>
+        </>
       )}
     </Card>
   );

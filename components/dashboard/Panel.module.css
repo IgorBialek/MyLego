@@ -10,6 +10,7 @@
   width: 100%;
   flex-wrap: wrap;
   gap: 25px;
+  margin-bottom: 25px;
 }
 
 .total p {

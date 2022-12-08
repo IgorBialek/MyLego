@@ -11,17 +11,27 @@ import css from './ItemHistory.module.css';
 const ItemHistory: FC<{ item: Item }> = ({ item }) => {
   const selectedCurrency = useRecoilValue(selectedCurrencyAtom);
 
+  let latestValue = item.history
+    ? item.history[item.history.length - 1].value
+    : 0;
+  let secondLatesValue = item.history
+    ? item.history[item.history.length - 2].value
+    : 0;
+
+  let lastPriceChangeValue = Math.ceil(
+    (latestValue - secondLatesValue) * selectedCurrency.value
+  );
+
   return (
     <Fragment>
       <div className={`${css.container} center`}>
-        <div className="center">
+        <CardInfo text={"Avarage Price"} customClass={css.smallDesc} />
+        <div className={`${css.price} center`}>
           <CardInfo
             text={
-              (
-                (item.avgPrice ?? 0) *
-                item.count *
-                selectedCurrency.value
-              ).toFixed() + selectedCurrency.name
+              Math.ceil(
+                (item.avgPrice ?? 0) * item.count * selectedCurrency.value
+              ) + selectedCurrency.name
             }
             customClass={css.itemPrice}
           />
@@ -31,12 +41,29 @@ const ItemHistory: FC<{ item: Item }> = ({ item }) => {
             selectedCurrency={selectedCurrency}
           />
         </div>
+        <CardInfo text={"Latest Change"} customClass={css.smallDesc} />
+        <div className={`${css.change} center`}>
+          <CardInfo
+            text={
+              (lastPriceChangeValue >= 0 ? "+" : "-") +
+              Math.abs(lastPriceChangeValue) +
+              selectedCurrency.name
+            }
+            customClass={css.smallItemPrice}
+          />
+          <Indicator
+            initValue={secondLatesValue}
+            newValue={latestValue}
+            selectedCurrency={selectedCurrency}
+            customClass={css.smallIndicator}
+          />
+        </div>
         {item.count > 1 && (
           <CardInfo
             text={`(${(
               (item.avgPrice ?? 0) * selectedCurrency.value
             ).toFixed()}${selectedCurrency.name} x ${item.count})`}
-            customClass={css.itemCount}
+            customClass={css.smallDesc}
           />
         )}
       </div>

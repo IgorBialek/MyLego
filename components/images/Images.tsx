@@ -2,9 +2,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { Tb3DCubeSphere, TbPhoto, TbX } from 'react-icons/tb';
-import { useRecoilValue } from 'recoil';
 
-import { currentItemAtom } from '../../atoms/images/currentItem';
 import CardPrimaryButton from '../UI/Card/CardPrimaryButton';
 import CardRadioBar from '../UI/Card/CardRadioBar';
 import CardSecondaryButton from '../UI/Card/CardSecondaryButton';
@@ -14,7 +12,15 @@ import Model from './Model';
 
 const Images = () => {
   const router = useRouter();
-  const currentItem = useRecoilValue(currentItemAtom);
+  let currentItem: { id: string; setID: number; image: string } | null = null;
+
+  if (router.query.id && router.query.setID && router.query.image) {
+    currentItem = {
+      id: router.query.id as string,
+      setID: parseInt(router.query.setID as string),
+      image: router.query.image as string,
+    };
+  }
   const [mode, setMode] = useState("IMAGES");
 
   if (!currentItem) {
