@@ -23,12 +23,22 @@ export const sortedItemsSelector = selector({
         case "CHANGE":
           return queriedItems.sort((a, b) => {
             if (a.history && b.history) {
-              if (a.history.length > 2 && b.history.length > 2) {
+              let aHistory = [...a.history].sort(
+                (a, b) =>
+                  new Date(a.date).getTime() - new Date(b.date).getTime()
+              );
+
+              let bHistory = [...b.history].sort(
+                (a, b) =>
+                  new Date(a.date).getTime() - new Date(b.date).getTime()
+              );
+
+              if (aHistory.length > 2 && bHistory.length > 2) {
                 return (
-                  b.history[b.history.length - 1].value -
-                  b.history[b.history.length - 2].value -
-                  (a.history[a.history.length - 1].value -
-                    a.history[a.history.length - 2].value)
+                  bHistory[bHistory.length - 1].value -
+                  bHistory[bHistory.length - 2].value -
+                  (aHistory[aHistory.length - 1].value -
+                    aHistory[aHistory.length - 2].value)
                 );
               }
             }
