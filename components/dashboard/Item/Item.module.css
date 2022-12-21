@@ -24,7 +24,7 @@
 
 .smallButtonsContainer {
   top: var(--card-padding);
-  right: var(--card-padding);
+  right: calc(var(--card-padding) / 2);
   position: absolute;
   display: flex;
   justify-content: center;
