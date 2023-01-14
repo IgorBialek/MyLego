@@ -29,7 +29,7 @@ const Dashboard = () => {
         style={{ width: hideSieve ? "100%" : "auto" }}
       >
         {loadedStates.items && loadedStates.updates && <Panel />}
-        {loadedStates.sorting && !hideSieve && <Sieve />}
+        {loadedStates.sorting && (!hideSieve || isMobile) && <Sieve />}
       </div>
       {loadedStates.items && <ItemList />}
     </div>

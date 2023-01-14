@@ -21,6 +21,7 @@ import css from "./Panel.module.css";
 
 const Panel = () => {
   const { data: session } = useSession();
+  const isMobile = useMediaQuery({ maxWidth: 1024 });
   const hideSieve = useMediaQuery({ maxWidth: 1456 });
   const items = useRecoilValue(itemsAtom);
   const updates = useRecoilValue(updatesAtom);
@@ -162,7 +163,7 @@ const Panel = () => {
           />
           <Usage customClass={css.usage} property={"bricklink"} />
         </div>
-        {hideSieve && (
+        {!isMobile && hideSieve && (
           <div className={css.hiddenSieveContainer}>
             <CardPrimaryButton
               customClass={css.showSieveButton}

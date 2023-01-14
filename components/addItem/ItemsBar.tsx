@@ -32,7 +32,7 @@ const ItemsBar = () => {
         marginTop={true}
         icon={<TbListCheck />}
         text={`Finalize${
-          selectedItems.length > 0 ? ` (${selectedItems.length}x 🧱)` : ""
+          selectedItems.length > 0 ? ` x${selectedItems.length}` : ""
         }`}
         handler={finalizeHandler}
       />

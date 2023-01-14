@@ -18,6 +18,7 @@ import css from "./Sieve.module.css";
 const Sieve = () => {
   const { data: session } = useSession();
 
+  const isMobile = useMediaQuery({ maxWidth: 1024 });
   const hideSieve = useMediaQuery({ maxWidth: 1456 });
   const setShowModal = useSetRecoilState(showModalAtom);
 
@@ -70,7 +71,7 @@ const Sieve = () => {
         placeholder="Filter Items"
         onInput={queryHandler}
       />
-      {hideSieve && (
+      {!isMobile && hideSieve && (
         <CardSecondaryButton
           customClass={css.cancel}
           text="Cancel"
