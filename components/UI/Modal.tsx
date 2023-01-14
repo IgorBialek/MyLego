@@ -1,10 +1,11 @@
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue } from "recoil";
 
-import { modalChildAtom } from '../../atoms/layout/ModalChild';
-import Finalize from '../addItem/Finalize';
-import Card from './Card/Card';
-import Error from './Error';
-import css from './Modal.module.css';
+import { modalChildAtom } from "../../atoms/layout/ModalChild";
+import Finalize from "../addItem/Finalize";
+import Sieve from "../dashboard/Sieve";
+import Card from "./Card/Card";
+import Error from "./Error";
+import css from "./Modal.module.css";
 
 const Modal = () => {
   const modalChild = useRecoilValue(modalChildAtom);
@@ -21,6 +22,8 @@ const Modal = () => {
         );
       case "FINALIZE":
         return <Finalize />;
+      case "SIEVE":
+        return <Sieve />;
       default:
         return <h1>Shit happend</h1>;
     }

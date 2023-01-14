@@ -1,9 +1,15 @@
-import { FC } from 'react';
-import { TbBattery, TbBattery1, TbBattery2, TbBattery3, TbBattery4 } from 'react-icons/tb';
-import { useRecoilValue } from 'recoil';
+import { FC } from "react";
+import {
+  TbBattery,
+  TbBattery1,
+  TbBattery2,
+  TbBattery3,
+  TbBattery4,
+} from "react-icons/tb";
+import { useRecoilValue } from "recoil";
 
-import { usageAtom } from '../../atoms/settings/Usage';
-import css from './Usage.module.css';
+import { usageAtom } from "../../atoms/settings/Usage";
+import css from "./Usage.module.css";
 
 const colorIterator = 1.2;
 

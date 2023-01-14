@@ -1,19 +1,25 @@
-import { doc, setDoc } from 'firebase/firestore';
-import { useSession } from 'next-auth/react';
-import { KeyboardEvent } from 'react';
-import { TbFilter, TbSortAscending2, TbSortDescending2 } from 'react-icons/tb';
-import { useRecoilState } from 'recoil';
+import { doc, setDoc } from "firebase/firestore";
+import { useSession } from "next-auth/react";
+import { KeyboardEvent } from "react";
+import { TbFilter, TbSortAscending2, TbSortDescending2 } from "react-icons/tb";
+import { useMediaQuery } from "react-responsive";
+import { useRecoilState, useSetRecoilState } from "recoil";
 
-import { sortAtom } from '../../atoms/dashboard/Sort';
-import { firestore } from '../../firebase';
-import Card from '../UI/Card/Card';
-import CardCheckbox from '../UI/Card/CardCheckbox';
-import CardInput from '../UI/Card/CardInput';
-import CardRadioBar from '../UI/Card/CardRadioBar';
-import css from './Sieve.module.css';
+import { sortAtom } from "../../atoms/dashboard/Sort";
+import { showModalAtom } from "../../atoms/layout/ShowModal";
+import { firestore } from "../../firebase";
+import Card from "../UI/Card/Card";
+import CardCheckbox from "../UI/Card/CardCheckbox";
+import CardInput from "../UI/Card/CardInput";
+import CardRadioBar from "../UI/Card/CardRadioBar";
+import CardSecondaryButton from "../UI/Card/CardSecondaryButton";
+import css from "./Sieve.module.css";
 
 const Sieve = () => {
   const { data: session } = useSession();
+
+  const hideSieve = useMediaQuery({ maxWidth: 1456 });
+  const setShowModal = useSetRecoilState(showModalAtom);
 
   const [sort, setSort] = useRecoilState(sortAtom);
 
@@ -64,6 +70,13 @@ const Sieve = () => {
         placeholder="Filter Items"
         onInput={queryHandler}
       />
+      {hideSieve && (
+        <CardSecondaryButton
+          customClass={css.cancel}
+          text="Cancel"
+          handler={() => setShowModal(false)}
+        />
+      )}
     </Card>
   );
 };

@@ -1,6 +1,6 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from "react";
 
-import css from './CardPrimaryButton.module.css';
+import css from "./CardPrimaryButton.module.css";
 
 const CardPrimaryButton: FC<{
   text?: string;

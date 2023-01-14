@@ -1,9 +1,9 @@
-import { matchSorter } from 'match-sorter';
-import { selector } from 'recoil';
+import { matchSorter } from "match-sorter";
+import { selector } from "recoil";
 
-import { limitAtom } from '../layout/limit';
-import { itemsAtom } from './Items';
-import { sortAtom } from './Sort';
+import { limitAtom } from "../layout/limit";
+import { itemsAtom } from "./Items";
+import { sortAtom } from "./Sort";
 
 export const sortedItemsSelector = selector({
   key: "sortedItems",

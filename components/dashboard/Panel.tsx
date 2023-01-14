@@ -1,25 +1,27 @@
-import axios from 'axios';
-import { doc, increment, setDoc, updateDoc } from 'firebase/firestore';
-import { useSession } from 'next-auth/react';
-import { useState } from 'react';
-import { TbRefresh } from 'react-icons/tb';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import axios from "axios";
+import { doc, increment, setDoc, updateDoc } from "firebase/firestore";
+import { useSession } from "next-auth/react";
+import { useState } from "react";
+import { TbFilter, TbRefresh } from "react-icons/tb";
+import { useMediaQuery } from "react-responsive";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
-import { itemsAtom } from '../../atoms/dashboard/Items';
-import { updatesAtom } from '../../atoms/dashboard/Updates';
-import { modalChildAtom } from '../../atoms/layout/ModalChild';
-import { showModalAtom } from '../../atoms/layout/ShowModal';
-import { selectedCurrencyAtom } from '../../atoms/settings/SelectedCurrency';
-import { firestore } from '../../firebase';
-import Item from '../../models/item/item';
-import CardPrimaryButton from '../UI/Card/CardPrimaryButton';
-import Chart from '../UI/Chart';
-import Indicator from '../UI/Indicator';
-import Usage from '../UI/Usage';
-import css from './Panel.module.css';
+import { itemsAtom } from "../../atoms/dashboard/Items";
+import { updatesAtom } from "../../atoms/dashboard/Updates";
+import { modalChildAtom } from "../../atoms/layout/ModalChild";
+import { showModalAtom } from "../../atoms/layout/ShowModal";
+import { selectedCurrencyAtom } from "../../atoms/settings/SelectedCurrency";
+import { firestore } from "../../firebase";
+import Item from "../../models/item/item";
+import CardPrimaryButton from "../UI/Card/CardPrimaryButton";
+import Chart from "../UI/Chart";
+import Indicator from "../UI/Indicator";
+import Usage from "../UI/Usage";
+import css from "./Panel.module.css";
 
 const Panel = () => {
   const { data: session } = useSession();
+  const hideSieve = useMediaQuery({ maxWidth: 1456 });
   const items = useRecoilValue(itemsAtom);
   const updates = useRecoilValue(updatesAtom);
   const selectedCurrency = useRecoilValue(selectedCurrencyAtom);
@@ -132,6 +134,11 @@ const Panel = () => {
     }
   };
 
+  const showSieveHandler = () => {
+    setModalChild({ id: "SIEVE" });
+    setShowModal(true);
+  };
+
   return (
     <div className={`${css.panelContainer} center`}>
       <div className={`${css.total} center`}>
@@ -155,7 +162,17 @@ const Panel = () => {
           />
           <Usage customClass={css.usage} property={"bricklink"} />
         </div>
+        {hideSieve && (
+          <div className={css.hiddenSieveContainer}>
+            <CardPrimaryButton
+              customClass={css.showSieveButton}
+              icon={<TbFilter />}
+              handler={showSieveHandler}
+            />
+          </div>
+        )}
       </div>
+
       {updates.length > 1 ? (
         <Chart data={updates} />
       ) : (

@@ -13,3 +13,8 @@
   margin: 0;
   font-size: 20px;
 }
+
+.cancel {
+  margin-top: 25px;
+  align-self: flex-end;
+}

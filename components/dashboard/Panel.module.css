@@ -62,3 +62,8 @@
 .usage {
   margin-left: calc(var(--card-padding) / 2);
 }
+
+.showSieveButton svg {
+  margin: 0;
+  font-size: 15px;
+}
