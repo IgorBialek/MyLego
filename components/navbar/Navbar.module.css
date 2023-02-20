@@ -1,6 +1,8 @@
 .navbarContainer {
   background-color: var(--color-2);
 
+  position: sticky;
+  top: 25px;
   height: calc(100vh - var(--content-margin) * 2);
   min-width: 200px;
 

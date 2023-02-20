@@ -3,7 +3,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  height: calc(100vh - var(--content-margin) * 2);
+  /* height: calc(100vh - var(--content-margin) * 2); */
   width: 100%;
 }
 
