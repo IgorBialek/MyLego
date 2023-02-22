@@ -1,6 +1,6 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextApiRequest, NextApiResponse } from "next";
 
-import { bricklink } from '../../../services/bricklink';
+import { bricklink } from "../../../services/bricklink";
 
 export default async function handler(
   req: NextApiRequest,
@@ -9,6 +9,10 @@ export default async function handler(
   let item = req.body.selectedItem;
   let type = req.body.type;
   let id = req.body.id;
+
+  if (item.name.includes("Complete")) {
+    id = id.split("-")[0] + "-2";
+  }
 
   let promise = await new Promise(async (resolve, reject) => {
     await bricklink.get(
