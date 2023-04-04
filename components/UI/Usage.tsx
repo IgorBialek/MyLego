@@ -13,6 +13,11 @@ import css from "./Usage.module.css";
 
 const colorIterator = 1.2;
 
+type limits = {
+  bricklink: number;
+  brickset: number;
+};
+
 const limits = {
   bricklink: 5000,
   brickset: 1000,
@@ -29,7 +34,10 @@ const Usage: FC<{ customClass?: string; property: string }> = ({
   }
 
   let usageProcentage: number = parseInt(
-    ((usage[property] / limits[property]) * 100).toFixed()
+    (
+      (usage[property as keyof limits] / limits[property as keyof limits]) *
+      100
+    ).toFixed()
   );
 
   let colorStyle = {
