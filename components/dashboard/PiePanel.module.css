@@ -1,0 +1,8 @@
+.customCard {
+  flex-direction: row;
+}
+
+.cancel {
+  margin-left: 75px;
+  align-self: flex-end;
+}

@@ -19,7 +19,7 @@ const Sieve = () => {
   const { data: session } = useSession();
 
   const isMobile = useMediaQuery({ maxWidth: 1024 });
-  const hideSieve = useMediaQuery({ maxWidth: 1456 });
+  const hideSieve = useMediaQuery({ maxWidth: 1840 });
   const setShowModal = useSetRecoilState(showModalAtom);
 
   const [sort, setSort] = useRecoilState(sortAtom);

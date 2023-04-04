@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement } from "react";
 
 export default interface CardRadioBar<T> {
   values: T[];
@@ -6,4 +6,5 @@ export default interface CardRadioBar<T> {
   icons?: ReactElement[];
   selectedValue: T;
   changeHandler: (value: T) => void;
+  vertical?: boolean;
 }

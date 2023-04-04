@@ -63,7 +63,13 @@
   margin-left: calc(var(--card-padding) / 2);
 }
 
-.showSieveButton svg {
+.showSieveButton svg,
+.showPieChartButton svg {
   margin: 0;
   font-size: 15px;
+}
+
+.hiddenContainer {
+  display: flex;
+  gap: 10px;
 }

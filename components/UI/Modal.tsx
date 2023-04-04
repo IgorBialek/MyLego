@@ -6,6 +6,7 @@ import Sieve from "../dashboard/Sieve";
 import Card from "./Card/Card";
 import Error from "./Error";
 import css from "./Modal.module.css";
+import PiePanel from "../dashboard/PiePanel";
 
 const Modal = () => {
   const modalChild = useRecoilValue(modalChildAtom);
@@ -24,6 +25,8 @@ const Modal = () => {
         return <Finalize />;
       case "SIEVE":
         return <Sieve />;
+      case "PIE":
+        return <PiePanel />;
       default:
         return <h1>Shit happend</h1>;
     }

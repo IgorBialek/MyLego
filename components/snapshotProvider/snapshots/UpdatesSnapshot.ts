@@ -1,22 +1,15 @@
-import { doc, onSnapshot } from 'firebase/firestore';
-import { SetterOrUpdater } from 'recoil';
+import { doc, onSnapshot } from "firebase/firestore";
+import { SetterOrUpdater } from "recoil";
 
-import { firestore } from '../../../firebase';
-import Update from '../../../models/update/update';
+import { firestore } from "../../../firebase";
+import Update from "../../../models/update/update";
+import Loaded from "../../../models/app/loaded";
 
 const UpdatesSnapshot = (
   email: string,
   setUpdates: SetterOrUpdater<Update[]>,
-  setLoadedStates: SetterOrUpdater<{
-    items: boolean;
-    updates: boolean;
-    sorting: boolean;
-  }>,
-  loadedStates: {
-    items: boolean;
-    updates: boolean;
-    sorting: boolean;
-  }
+  setLoadedStates: SetterOrUpdater<Loaded>,
+  loadedStates: Loaded
 ) => {
   const unsubscribeUpdates = onSnapshot(
     doc(firestore, "updates", email),

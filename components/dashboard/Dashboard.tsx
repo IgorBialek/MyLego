@@ -3,15 +3,16 @@ import { useMediaQuery } from "react-responsive";
 import { useRecoilValue } from "recoil";
 
 import { LoadedStatesAtom } from "../../atoms/layout/LoadedStates";
-import { showModalAtom } from "../../atoms/layout/ShowModal";
 import css from "./Dashboard.module.css";
 import ItemList from "./Item/ItemList";
 import Panel from "./Panel";
 import Sieve from "./Sieve";
+import PiePanel from "./PiePanel";
 
 const Dashboard = () => {
   const isMobile = useMediaQuery({ maxWidth: 1024 });
-  const hideSieve = useMediaQuery({ maxWidth: 1456 });
+  const hideSieve = useMediaQuery({ maxWidth: 1840 });
+  const hidePiePanel = useMediaQuery({ maxWidth: 1330 });
   const loadedStates = useRecoilValue(LoadedStatesAtom);
 
   return (
@@ -30,6 +31,9 @@ const Dashboard = () => {
       >
         {loadedStates.items && loadedStates.updates && <Panel />}
         {loadedStates.sorting && (!hideSieve || isMobile) && <Sieve />}
+        {loadedStates.items &&
+          loadedStates.pie &&
+          (!hidePiePanel || isMobile) && <PiePanel />}
       </div>
       {loadedStates.items && <ItemList />}
     </div>

@@ -1,6 +1,6 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const LoadedStatesAtom = atom({
   key: "loadedStates",
-  default: { items: false, updates: false, sorting: false },
+  default: { items: false, updates: false, sorting: false, pie: false },
 });

@@ -1,14 +1,14 @@
-import { FC, PropsWithChildren, UIEvent, useEffect } from 'react';
-import { useMediaQuery } from 'react-responsive';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { FC, PropsWithChildren, UIEvent, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
-import { limitAtom } from '../../atoms/layout/limit';
-import { showModalAtom } from '../../atoms/layout/ShowModal';
-import { themeAtom } from '../../atoms/layout/Theme';
-import scrollHandler from '../../lib/scrollHandler';
-import Navbar from '../navbar/Navbar';
-import Modal from '../UI/Modal';
-import css from './Layout.module.css';
+import { limitAtom } from "../../atoms/layout/limit";
+import { showModalAtom } from "../../atoms/layout/ShowModal";
+import { themeAtom } from "../../atoms/layout/Theme";
+import scrollHandler from "../../lib/scrollHandler";
+import Navbar from "../navbar/Navbar";
+import Modal from "../UI/Modal";
+import css from "./Layout.module.css";
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   const isMobile = useMediaQuery({ maxWidth: 1024 });

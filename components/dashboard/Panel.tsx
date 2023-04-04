@@ -2,7 +2,7 @@ import axios from "axios";
 import { doc, increment, setDoc, updateDoc } from "firebase/firestore";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
-import { TbFilter, TbRefresh } from "react-icons/tb";
+import { TbChartPie, TbFilter, TbRefresh } from "react-icons/tb";
 import { useMediaQuery } from "react-responsive";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 
@@ -22,7 +22,9 @@ import css from "./Panel.module.css";
 const Panel = () => {
   const { data: session } = useSession();
   const isMobile = useMediaQuery({ maxWidth: 1024 });
-  const hideSieve = useMediaQuery({ maxWidth: 1456 });
+  const hideSieve = useMediaQuery({ maxWidth: 1840 });
+  const hidePiePanel = useMediaQuery({ maxWidth: 1330 });
+
   const items = useRecoilValue(itemsAtom);
   const updates = useRecoilValue(updatesAtom);
   const selectedCurrency = useRecoilValue(selectedCurrencyAtom);
@@ -140,6 +142,11 @@ const Panel = () => {
     setShowModal(true);
   };
 
+  const showPieChartHandler = () => {
+    setModalChild({ id: "PIE" });
+    setShowModal(true);
+  };
+
   return (
     <div className={`${css.panelContainer} center`}>
       <div className={`${css.total} center`}>
@@ -163,15 +170,26 @@ const Panel = () => {
           />
           <Usage customClass={css.usage} property={"bricklink"} />
         </div>
-        {!isMobile && hideSieve && (
-          <div className={css.hiddenSieveContainer}>
-            <CardPrimaryButton
-              customClass={css.showSieveButton}
-              icon={<TbFilter />}
-              handler={showSieveHandler}
-            />
-          </div>
-        )}
+        <div className={css.hiddenContainer}>
+          {!isMobile && hideSieve && (
+            <div className={css.hiddenSieveContainer}>
+              <CardPrimaryButton
+                customClass={css.showSieveButton}
+                icon={<TbFilter />}
+                handler={showSieveHandler}
+              />
+            </div>
+          )}
+          {!isMobile && hidePiePanel && (
+            <div className={css.hiddenPieChartContainer}>
+              <CardPrimaryButton
+                customClass={css.showPieChartButton}
+                icon={<TbChartPie />}
+                handler={showPieChartHandler}
+              />
+            </div>
+          )}
+        </div>
       </div>
 
       {updates.length > 1 ? (

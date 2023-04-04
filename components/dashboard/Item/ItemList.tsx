@@ -1,12 +1,12 @@
-import { useEffect } from 'react';
-import { useMediaQuery } from 'react-responsive';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 
-import { sortedItemsSelector } from '../../../atoms/dashboard/SortedItems';
-import { limitAtom } from '../../../atoms/layout/limit';
-import scrollHandler from '../../../lib/scrollHandler';
-import ItemComp from './Item';
-import css from './ItemList.module.css';
+import { sortedItemsSelector } from "../../../atoms/dashboard/SortedItems";
+import { limitAtom } from "../../../atoms/layout/limit";
+import scrollHandler from "../../../lib/scrollHandler";
+import ItemComp from "./Item";
+import css from "./ItemList.module.css";
 
 const ItemList = () => {
   const isMobile = useMediaQuery({ maxWidth: 1024 });

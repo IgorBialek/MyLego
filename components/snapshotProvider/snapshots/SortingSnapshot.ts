@@ -1,21 +1,14 @@
-import { doc, onSnapshot } from 'firebase/firestore';
-import { SetterOrUpdater } from 'recoil';
+import { doc, onSnapshot } from "firebase/firestore";
+import { SetterOrUpdater } from "recoil";
 
-import { firestore } from '../../../firebase';
+import { firestore } from "../../../firebase";
+import Loaded from "../../../models/app/loaded";
 
 const SortingSnapshot = (
   email: string,
   setSort: SetterOrUpdater<{ mode: string; desc: boolean; query: string }>,
-  setLoadedStates: SetterOrUpdater<{
-    items: boolean;
-    updates: boolean;
-    sorting: boolean;
-  }>,
-  loadedStates: {
-    items: boolean;
-    updates: boolean;
-    sorting: boolean;
-  }
+  setLoadedStates: SetterOrUpdater<Loaded>,
+  loadedStates: Loaded
 ) => {
   const unsubscribeSorting = onSnapshot(
     doc(firestore, "sorting", email),
