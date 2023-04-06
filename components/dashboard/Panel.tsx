@@ -22,7 +22,7 @@ import css from "./Panel.module.css";
 const Panel = () => {
   const { data: session } = useSession();
   const isMobile = useMediaQuery({ maxWidth: 1024 });
-  const hideSieve = useMediaQuery({ maxWidth: 1895 });
+  const hideSieve = useMediaQuery({ maxWidth: 1840 });
   const hidePiePanel = useMediaQuery({ maxWidth: 1385 });
 
   const items = useRecoilValue(itemsAtom);

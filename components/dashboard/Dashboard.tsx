@@ -11,7 +11,7 @@ import PiePanel from "./PiePanel";
 
 const Dashboard = () => {
   const isMobile = useMediaQuery({ maxWidth: 1024 });
-  const hideSieve = useMediaQuery({ maxWidth: 1895 });
+  const hideSieve = useMediaQuery({ maxWidth: 1840 });
   const hidePiePanel = useMediaQuery({ maxWidth: 1385 });
   const loadedStates = useRecoilValue(LoadedStatesAtom);
 
