@@ -12,15 +12,18 @@ import { firestore } from "../../firebase";
 import { useMediaQuery } from "react-responsive";
 import { showModalAtom } from "../../atoms/layout/ShowModal";
 import CardSecondaryButton from "../UI/Card/CardSecondaryButton";
+import { itemsAtom } from "../../atoms/dashboard/Items";
 
 const PiePanel = () => {
   const { data: session } = useSession();
+
+  const items = useRecoilValue(itemsAtom);
 
   const pieChartData = useRecoilValue(pieDataSelector);
   const pie = useRecoilValue(pieAtom);
 
   const isMobile = useMediaQuery({ maxWidth: 1024 });
-  const hidePiePanel = useMediaQuery({ maxWidth: 1330 });
+  const hidePiePanel = useMediaQuery({ maxWidth: 1385 });
   const setShowModal = useSetRecoilState(showModalAtom);
 
   const modeHandler = (value: string) => {
@@ -39,7 +42,11 @@ const PiePanel = () => {
 
   return (
     <Card customClass={css.customCard}>
-      <PieChart data={pieChartData} />
+      {items.length > 0 ? (
+        <PieChart data={pieChartData} />
+      ) : (
+        <h1>Not enough data yet 🤦‍♂️</h1>
+      )}
       <CardRadioBar
         changeHandler={modeHandler}
         selectedValue={pie.mode}

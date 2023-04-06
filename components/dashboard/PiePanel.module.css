@@ -2,6 +2,13 @@
   flex-direction: row;
 }
 
+.customCard > h1 {
+  color: var(--text-color);
+  font-size: 25px;
+  max-width: 200px;
+  text-align: center;
+}
+
 .cancel {
   margin-left: 75px;
   align-self: flex-end;

@@ -1,9 +1,9 @@
-import { BuiltInProviderType } from 'next-auth/providers';
-import { ClientSafeProvider, LiteralUnion, signIn } from 'next-auth/react';
-import Head from 'next/head';
-import { FC } from 'react';
+import { BuiltInProviderType } from "next-auth/providers";
+import { ClientSafeProvider, LiteralUnion, signIn } from "next-auth/react";
+import Head from "next/head";
+import { FC } from "react";
 
-import css from './ProvidersList.module.css';
+import css from "./ProvidersList.module.css";
 
 const ProvidersList: FC<{
   providers: Record<

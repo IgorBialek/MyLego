@@ -4,6 +4,7 @@ import { pieAtom } from "./Pie";
 import { PieChartData } from "../../components/UI/PieChart";
 import getHSLColors from "../../lib/getColors";
 import { selectedCurrencyAtom } from "../settings/SelectedCurrency";
+import { themeAtom } from "../layout/Theme";
 
 export const pieDataSelector = selector({
   key: "pieData",
@@ -11,6 +12,7 @@ export const pieDataSelector = selector({
     const selectedCurrency = get(selectedCurrencyAtom);
     const pie = get(pieAtom);
     const items = get(itemsAtom);
+    const theme = get(themeAtom);
 
     const getPieData = (): PieChartData[] => {
       switch (pie.mode) {
@@ -32,10 +34,7 @@ export const pieDataSelector = selector({
             }
           });
 
-          let themesHSLColors = getHSLColors(
-            themes.length,
-            getComputedStyle(document.body).getPropertyValue("--color-2")
-          );
+          let themesHSLColors = getHSLColors(themes.length, `#${theme[1]}`);
 
           const sortedThemes = themes.sort((a, b) => b.value - a.value);
 
@@ -71,10 +70,7 @@ export const pieDataSelector = selector({
             }
           });
 
-          let profitHSLColors = getHSLColors(
-            profits.length,
-            getComputedStyle(document.body).getPropertyValue("--color-2")
-          );
+          let profitHSLColors = getHSLColors(profits.length, `#${theme[1]}`);
 
           const sortedProfits = profits.sort((a, b) => b.value - a.value);
 
@@ -100,10 +96,7 @@ export const pieDataSelector = selector({
             }
           });
 
-          let typesHSLColors = getHSLColors(
-            types.length,
-            getComputedStyle(document.body).getPropertyValue("--color-2")
-          );
+          let typesHSLColors = getHSLColors(types.length, `#${theme[1]}`);
 
           const sortedTypes = types.sort((a, b) => b.value - a.value);
 

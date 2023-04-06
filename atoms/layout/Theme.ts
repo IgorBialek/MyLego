@@ -1,4 +1,4 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const themeAtom = atom<string[]>({
   key: "theme",

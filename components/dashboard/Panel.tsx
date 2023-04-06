@@ -22,8 +22,8 @@ import css from "./Panel.module.css";
 const Panel = () => {
   const { data: session } = useSession();
   const isMobile = useMediaQuery({ maxWidth: 1024 });
-  const hideSieve = useMediaQuery({ maxWidth: 1840 });
-  const hidePiePanel = useMediaQuery({ maxWidth: 1330 });
+  const hideSieve = useMediaQuery({ maxWidth: 1895 });
+  const hidePiePanel = useMediaQuery({ maxWidth: 1385 });
 
   const items = useRecoilValue(itemsAtom);
   const updates = useRecoilValue(updatesAtom);
@@ -112,7 +112,10 @@ const Panel = () => {
           .toFixed()
       );
 
-      if (upgradedItemsValue !== updates[updates.length - 1].value) {
+      if (
+        updates.length === 0 ||
+        upgradedItemsValue !== updates[updates.length - 1].value
+      ) {
         let email = session?.user?.email;
 
         if (email) {
@@ -197,7 +200,7 @@ const Panel = () => {
       ) : (
         <h2 className={css.chartInfo}>
           You need to at least update your collection twice to see portfolio
-          change chart!
+          change chart! 📈
         </h2>
       )}
     </div>

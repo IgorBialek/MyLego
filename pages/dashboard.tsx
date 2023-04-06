@@ -1,8 +1,8 @@
 import type { GetServerSideProps, NextPage } from "next";
-import { getSession } from 'next-auth/react';
-import dynamic from 'next/dynamic';
+import { getSession } from "next-auth/react";
+import dynamic from "next/dynamic";
 
-import Dashboard from '../components/dashboard/Dashboard';
+import Dashboard from "../components/dashboard/Dashboard";
 
 const Layout = dynamic(() => import("../components/layout/Layout"), {
   ssr: false,

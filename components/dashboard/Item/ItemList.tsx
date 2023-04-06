@@ -34,7 +34,7 @@ const ItemList = () => {
       ) : (
         <div className={`${css.itemListInfo} center`}>
           <h1>It is empty here! 😨</h1>
-          <h2>Please add some items 🥺</h2>
+          <h2>Please add some items 🙏</h2>
         </div>
       )}
     </div>

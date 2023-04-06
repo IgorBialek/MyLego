@@ -1,12 +1,12 @@
-import { FC, Fragment } from 'react';
-import { useRecoilValue } from 'recoil';
+import { FC, Fragment } from "react";
+import { useRecoilValue } from "recoil";
 
-import { selectedCurrencyAtom } from '../../../atoms/settings/SelectedCurrency';
-import Item from '../../../models/item/item';
-import CardInfo from '../../UI/Card/CardInfo';
-import Chart from '../../UI/Chart';
-import Indicator from '../../UI/Indicator';
-import css from './ItemHistory.module.css';
+import { selectedCurrencyAtom } from "../../../atoms/settings/SelectedCurrency";
+import Item from "../../../models/item/item";
+import CardInfo from "../../UI/Card/CardInfo";
+import Chart from "../../UI/Chart";
+import Indicator from "../../UI/Indicator";
+import css from "./ItemHistory.module.css";
 
 const ItemHistory: FC<{ item: Item }> = ({ item }) => {
   const selectedCurrency = useRecoilValue(selectedCurrencyAtom);
@@ -33,9 +33,8 @@ const ItemHistory: FC<{ item: Item }> = ({ item }) => {
         <div className={`${css.price} center`}>
           <CardInfo
             text={
-              Math.ceil(
-                (item.avgPrice ?? 0) * item.count * selectedCurrency.value
-              ) + selectedCurrency.name
+              Math.ceil((item.avgPrice ?? 0) * selectedCurrency.value) +
+              selectedCurrency.name
             }
             customClass={css.itemPrice}
           />
