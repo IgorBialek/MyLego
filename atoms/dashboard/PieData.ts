@@ -44,12 +44,21 @@ export const pieDataSelector = selector({
         case "PROFIT":
           let profits: PieChartData[] = [];
 
-          //   var totalProfit = 0;
+          var totalProfit = 0;
 
-          //   items.forEach((item) => {
-          //     totalProfit +=
-          //       ((item.avgPrice ?? 0) - (item.retail ?? 0)) * item.count;
-          //   });
+          items.forEach((item) => {
+            const profit = parseFloat(
+              (
+                ((item.avgPrice ?? 0) - (item.retail ?? 0)) *
+                item.count *
+                selectedCurrency.value
+              ).toFixed(2)
+            );
+
+            if (profit > 0) {
+              totalProfit += profit;
+            }
+          });
 
           items.forEach((item) => {
             const profit = parseFloat(

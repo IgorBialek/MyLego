@@ -1,10 +1,10 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
+import Head from "next/head";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
-import CardCarousel from '../UI/Card/CardCarousel';
-import css from './Guide.module.css';
+import CardCarousel from "../UI/Card/CardCarousel";
+import css from "./Guide.module.css";
 
 const Guide = () => {
   const router = useRouter();
@@ -22,7 +22,7 @@ const Guide = () => {
     if (stage < guides.length - 1) {
       setStage((prevState) => prevState + 1);
     } else {
-      router.push("/addItem");
+      router.push("/dashboard");
     }
 
     resetImage();
